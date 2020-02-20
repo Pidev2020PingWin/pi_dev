@@ -1,0 +1,33 @@
+{% extends 'back.html.twig' %}
+
+{% block body %}
+<div class="bs-example widget-shadow" data-example-id="contextual-table">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>IdEspeces</th>
+            <th>nom</th>
+            <th>type</th>
+            <th>description</th>
+            <th>edit</th>
+            <th>ajout</th>
+            <th>supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for info in c %}
+            <tr>
+                <td>{{ c.idE }}</td>
+                <td>{{ c.nom }}</td>
+                <td>{{ c.type }}</td>
+                <td>{{ c.description }}</td>
+                <td>  <a href="{{ path('espece_edit', { 'esp': info.idE }) }}  " class="btn btn-primary">Edit</a></td>
+                <td><a href="{{ path('espece_Ajouter', { 'idr': info.idE }) }}"class="btn btn-primary">ajouter</a></td>
+                <td><a href="{{ path('espece_delete', { 'id': info.idE }) }}"class="btn btn-primary">delete</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
